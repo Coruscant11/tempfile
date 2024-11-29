@@ -86,6 +86,10 @@ pub fn keep(path: &Path) -> io::Result<()> {
 }
 
 pub fn persist(old_path: &Path, new_path: &Path, overwrite: bool) -> io::Result<()> {
+    println!(
+        "Persisting file from {} to {} with overwrite set to {}",
+        old_path, new_path, overwrite
+    );
     unsafe {
         let old_path_w = to_utf16(old_path);
         let new_path_w = to_utf16(new_path);
